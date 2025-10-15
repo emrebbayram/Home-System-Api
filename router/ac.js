@@ -16,10 +16,10 @@ router.get("/", (req, res) => {
 })
 
 router.get("/command/view", (req, res) => {
-    res.status(200).send("" + commands[current_command])
+    res.status(200).send("" + current_command)
 })
 router.get("/command", (req, res) => {
-    res.status(200).send("" + commands[current_command])
+    res.status(200).send("" + current_command)
     commands[current_command] = undefined;
 })
 router.get("/commands", (req, res) => {
