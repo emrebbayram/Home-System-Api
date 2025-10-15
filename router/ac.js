@@ -11,12 +11,16 @@ const commands = Object.freeze({
 
 var current_command;
 
+function GetCommandName(value) {
+  return Object.keys(commands).find(key => commands[key] === value);
+}
+
 router.get("/", (req, res) => {
     res.status(200).send("AC is working")
 })
 
 router.get("/command/view", (req, res) => {
-    res.status(200).send("" + current_command)
+    res.status(200).send("" + GetCommandName(current_command))
 })
 router.get("/command", (req, res) => {
     res.status(200).send("" + current_command)
