@@ -55,6 +55,9 @@ function logger(req,res,next){
     next()
 }
 
+const acRouter = require("./router/ac")
+app.use("/ac",acRouter)
+
 app.use("/users",userRouter)
 
 app.listen(3000);
