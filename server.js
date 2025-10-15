@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const fs = require("fs");
 const app = express();
 
@@ -8,6 +9,10 @@ function logger(req,res,next){
 }
 
 app.use(express.json())
+
+app.use(cors({
+  origin: "null" // dosyadan açılanlar için
+}));
 
 app.use(logger)
 
