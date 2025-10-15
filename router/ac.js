@@ -20,7 +20,7 @@ router.get("/command/view", (req, res) => {
 })
 router.get("/command", (req, res) => {
     res.status(200).send("" + current_command)
-    commands[current_command] = undefined;
+    current_command = undefined;
 })
 router.get("/commands", (req, res) => {
     res.status(200).send(commands)
