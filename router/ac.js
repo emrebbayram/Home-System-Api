@@ -18,5 +18,14 @@ router.get("/", (req, res) => {
 router.get("/command", (req, res) => {
     res.status(200).send("" + current_command)
 })
+router.post("command", (req, res) => {
+    const command = commands[req.query.command]
+    if (command === undefined) {
+        res.status(400).send("Invalid command")
+    }else {
+        current_command = command
+        res.status(200).send("Command received: " + command)
+    }
+})
 
-module.exports = router; // <-- BU SATIR ZORUNLU
+module.exports = router;
