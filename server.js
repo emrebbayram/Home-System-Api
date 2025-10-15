@@ -22,11 +22,8 @@ app.get("/contact",(req,res) => {
 });
 
 
-const userRouter = require("./router/users")
 const acRouter = require("./router/ac")
 
 app.use("/ac",acRouter)
-
-app.use("/users",userRouter)
 
 app.listen(3000);
