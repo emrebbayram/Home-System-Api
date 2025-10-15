@@ -1,0 +1,20 @@
+[
+    {
+        "name": "dsadsa455fdfs",
+        "pass": "dsadsa",
+        "email": "dsadsa",
+        "permission": 1
+    },
+    {
+        "name": "dsadsa",
+        "pass": "0123456789e",
+        "email": "sdaddsadsasssa",
+        "permission": 0
+    },
+    {
+        "name": "test",
+        "pass": "123456",
+        "email": "slidsadcan24@gmail.com",
+        "permission": 0
+    }
+]
