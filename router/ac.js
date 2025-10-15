@@ -6,7 +6,11 @@ const commands = Object.freeze({
     STOP: 1,
     RESTART: 2,
     TEMP_INCREASE: 3,
-    TEMP_DECREASE: 4
+    TEMP_DECREASE: 4,
+    MODE_COOL: 5,
+    MODE_HEAT: 6,
+    MODE_FAN: 7,
+    GET_TEMP: 8
 })
 
 var current_command;
@@ -36,6 +40,15 @@ router.post("/command", (req, res) => {
     }else {
         current_command = command
         res.status(200).send("Command received: " + command)
+    }
+})
+router.post("/temp/response", (req, res) => {
+    const temp = req.query.temp
+    if (temp === undefined) {
+        res.status(400).send("Invalid temperature")
+    }else {
+        current_command = temp
+        res.status(200).send(temp)
     }
 })
 
