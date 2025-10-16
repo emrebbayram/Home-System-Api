@@ -61,8 +61,11 @@ router.post("/command", async (req, res) => {
                 var data = {};
                 data["temp"] = lastTemp;
                 res.status(200).send(data);
+            }else {
+                var data = {};
+                data["temp"] = lastTemp;
+                res.status(200).send(data);
             }
-            res.status(200).send("Command received: " + command)
         }else {
             res.status(200).send("Command received: " + command)
         }
