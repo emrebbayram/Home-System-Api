@@ -75,8 +75,8 @@ router.post("/command", async (req, res) => {
     }
 })
 router.post("/temp/response", (req, res) => {
-    const temp = req.query.temp
-    const hum = req.query.hum
+    const temp = req.body.temp
+    const hum = req.body.hum
     if (temp === undefined) {
         res.status(400).send("Invalid temperature")
     }else {
