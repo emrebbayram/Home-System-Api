@@ -18,6 +18,7 @@ var current_command;
 var last_temp_check;
 
 var lastTemp;
+var lastHum;
 
 function GetCommandName(value) {
   return Object.keys(commands).find(key => commands[key] === value);
@@ -60,10 +61,12 @@ router.post("/command", async (req, res) => {
                 await waitForTempUpdate(old_temp_check);
                 var data = {};
                 data["temp"] = lastTemp;
+                data["hum"] = lastHum;
                 res.status(200).send(data);
             }else {
                 var data = {};
                 data["temp"] = lastTemp;
+                data["hum"] = lastHum;
                 res.status(200).send(data);
             }
         }else {
@@ -73,12 +76,16 @@ router.post("/command", async (req, res) => {
 })
 router.post("/temp/response", (req, res) => {
     const temp = req.query.temp
+    const hum = req.query.hum
     if (temp === undefined) {
         res.status(400).send("Invalid temperature")
     }else {
+        if (hum !== undefined) {
+            lastHum = hum;
+        }
         lastTemp = temp;
         last_temp_check = Date.now();
-        res.status(200).send(temp)
+        res.status(200).send()
     }
 })
 

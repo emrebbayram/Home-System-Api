@@ -9,6 +9,7 @@ function logger(req,res,next){
 }
 
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
   origin: "null" // dosyadan açılanlar için
