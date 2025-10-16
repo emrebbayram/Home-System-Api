@@ -58,7 +58,7 @@ router.post("/command", async (req, res) => {
             if (last_temp_check === undefined || (Date.now() - last_temp_check) > 300000) {
                 const old_temp_check = last_temp_check;
                 await waitForTempUpdate(old_temp_check);
-                var data;
+                var data = {};
                 data["temp"] = lastTemp;
                 res.status(200).send(data);
             }
